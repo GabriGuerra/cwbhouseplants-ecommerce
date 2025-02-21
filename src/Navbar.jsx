@@ -1,12 +1,8 @@
-// Navbar.jsx
-
 import React from "react";
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import './Navbar.css';
 
-
-
-const NavigationBar = ({ cartCount, toggleShowItems }) => {
+const NavigationBar = ({ cartCount, handleCartClick, handleSmoothScroll }) => {
   return (
     <Navbar bg="success" variant="dark" expand="lg" className="custom-navbar">
       <Container>
@@ -20,19 +16,19 @@ const NavigationBar = ({ cartCount, toggleShowItems }) => {
         <Navbar.Collapse id="navbar-nav">
           {/* Centraliza os links */}
           <Nav className="mx-auto">
-            <Nav.Link href="#indoor" onClick={toggleShowItems}>
+            <Nav.Link href="#" onClick={() => handleSmoothScroll("indoor")}>
               Indoor Plants
             </Nav.Link>
-            <Nav.Link href="#outdoor" onClick={toggleShowItems}>
+            <Nav.Link href="#" onClick={() => handleSmoothScroll("outdoor")}>
               Outdoor Plants
             </Nav.Link>
-            <Nav.Link href="#exotic" onClick={toggleShowItems}>
+            <Nav.Link href="#" onClick={() => handleSmoothScroll("exotic")}>
               Exotic Plants
             </Nav.Link>
           </Nav>
 
           {/* Ícone do carrinho estilizado */}
-          <div onClick={toggleShowItems} className="cart-icon-container">
+          <div onClick={handleCartClick} className="cart-icon-container">
             <i className="bi bi-cart"></i>
             <span className="cart-count">({cartCount})</span>
           </div>
@@ -43,4 +39,3 @@ const NavigationBar = ({ cartCount, toggleShowItems }) => {
 };
 
 export default NavigationBar;
-

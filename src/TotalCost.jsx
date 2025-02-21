@@ -28,7 +28,7 @@ const TotalCost = ({ totalCosts, items }) => {
                 <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
                   <div>
                     <h5>{item.name}</h5> {/* Nome da planta */}
-                    <p className="mb-1">Type: {item.category}</p> {/* Exibindo o tipo da planta */}
+                    <p className="mb-1">Category: {item.category}</p> {/* Exibindo o tipo da planta */}
                     <p className="mb-0">
                       {item.quantity} x ${item.price.toFixed(2)} {/* Quantidade e preço unitário */}
                     </p>

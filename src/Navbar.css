@@ -19,6 +19,7 @@
   
   .navbar-brand {
     font-size: 1.8rem;
+    font-style: italic;
     font-weight: bold;
     color: #ffffff !important;
     font-family: 'Poppins', sans-serif;
@@ -53,6 +54,7 @@
   .cart-icon-container {
     display: flex;
     align-items: center;
+    margin-left: 200px;
     cursor: pointer;
     font-size: 1.5rem;
     color: white;
