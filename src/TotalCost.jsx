@@ -1,49 +1,96 @@
 import React from "react";
-import { Card, ListGroup, Button } from "react-bootstrap"; // Importando componentes do Bootstrap
+import { Card, ListGroup, Button, Image } from "react-bootstrap";
+import "./TotalCost.css"; // Importando arquivo CSS externo
 
-// Atualize para aceitar uma lista de itens no carrinho e calcular o total corretamente.
-const TotalCost = ({ totalCosts, items }) => {
-  // Calculando o total geral com base nos itens do carrinho.
-  const total_amount = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+const TotalCost = ({ items, updateQuantity, removeItem, handleSmoothScroll }) => {
+  const totalAmount = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
+
+  const handleContinueShopping = () => {
+    handleSmoothScroll("indoor");
+  };
+
+  const handleCheckout = () => {
+    if (items.length === 0) {
+      alert("Your cart is empty!");
+    } else {
+      alert("Proceeding to checkout...");
+      // Aqui pode ser adicionado redirecionamento para a página de pagamento
+    }
+  };
 
   return (
     <div className="container my-4">
-      <Card className="shadow-lg p-3 mb-5 bg-white rounded">
+      <Card className="shadow-lg p-3 mb-5 bg-white rounded total-cost-card">
         <Card.Body>
           <Card.Title className="text-center mb-4">
-            <h3>Total Cost</h3>
+            <h3>Shopping Cart</h3>
+            <h5 className="total-items">Total Items: {totalItems}</h5>
           </Card.Title>
-          
-          {/* Substituindo o Card.Text por uma div */}
-          <div className="text-center mb-4">
-            <h2 className="price">
-              ${total_amount.toFixed(2)} {/* Exibe o valor total formatado */}
-            </h2>
+
+          <div className="text-center mb-4 total-amount">
+            <h2>${totalAmount.toFixed(2)}</h2>
           </div>
 
           <ListGroup variant="flush">
-            {/* Exibindo os itens no carrinho */}
             {items.length > 0 ? (
-              items.map((item, index) => (
-                <ListGroup.Item key={index} className="d-flex justify-content-between align-items-center">
-                  <div>
-                    <h5>{item.name}</h5> {/* Nome da planta */}
-                    <p className="mb-1">Category: {item.category}</p> {/* Exibindo o tipo da planta */}
-                    <p className="mb-0">
-                      {item.quantity} x ${item.price.toFixed(2)} {/* Quantidade e preço unitário */}
-                    </p>
+              items.map((item) => (
+                <ListGroup.Item
+                  key={item.id}
+                  className="d-flex justify-content-between align-items-center item-row"
+                >
+                  <div className="d-flex align-items-center item-details">
+                    <Image src={item.image} alt={item.name} className="item-image" />
+                    <div>
+                      <h5 className="item-name">{item.name}</h5>
+                      <p className="item-category">Category: {item.category}</p>
+                      <p className="item-price">
+                        {item.quantity} x ${item.price.toFixed(2)}
+                      </p>
+                    </div>
                   </div>
-                  <span>Total: ${(item.quantity * item.price).toFixed(2)}</span> {/* Cálculo do total para o item */}
+                  <div className="item-actions">
+                    {/* Botão de diminuir a quantidade */}
+                    <Button
+                      variant="outline-secondary"
+                      size="sm"
+                      onClick={() => 
+                         removeItem(item.id) // Remover o item
+                      }
+                    >
+                      -
+                    </Button>
+                    <span className="mx-2 item-quantity">{item.quantity}</span>
+                    {/* Botão de aumentar a quantidade */}
+                    <Button
+                      variant="outline-secondary"
+                      size="sm"
+                      onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                    >
+                      +
+                    </Button>
+                    {/* Botão de remover item */}
+                    <Button
+                      variant="danger"
+                      size="sm"
+                      className="ml-3 remove-button"
+                      onClick={() => removeItem(item.id)}
+                    >
+                      Remove
+                    </Button>
+                  </div>
                 </ListGroup.Item>
               ))
             ) : (
-              <p className="text-center">No items in cart</p>
+              <p className="text-center empty-cart">No items in cart</p>
             )}
           </ListGroup>
 
-          {/* Botão para voltar ou fechar o carrinho */}
-          <div className="text-center mt-4">
-            <Button variant="primary" onClick={() => alert("Proceed to checkout!")}>
+          <div className="text-center mt-4 button-group">
+            <Button variant="secondary" className="mr-3 continue-shopping" onClick={handleContinueShopping}>
+              Continue Shopping
+            </Button>
+            <Button variant="primary" className="checkout-button" onClick={handleCheckout}>
               Checkout
             </Button>
           </div>
