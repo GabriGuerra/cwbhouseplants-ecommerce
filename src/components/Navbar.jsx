@@ -1,39 +1,56 @@
-import React from "react"; // Importing React to create a functional component (em Português: Importando o React para criar um componente funcional)
-import { Navbar, Nav, Container } from 'react-bootstrap'; // Importing necessary components from React Bootstrap (em Português: Importando os componentes necessários do React Bootstrap)
-import '../assets/css/Navbar.css'; // Importing custom CSS for styling (em Português: Importando o CSS personalizado para o estilo)
+import React, { useState, useEffect } from "react";
+import { Navbar, Nav, Container } from 'react-bootstrap';
+import '../assets/css/Navbar.css';
 
-const NavigationBar = ({ cartCount, handleCartClick, handleSmoothScroll }) => { // Defining the NavigationBar component with props (em Português: Definindo o componente NavigationBar com as propriedades)
+const NavigationBar = ({ cartCount, handleCartClick, handleSmoothScroll, isNavbarVisible }) => {
+  const [animateCart, setAnimateCart] = useState(false);
+
+  // Animar o ícone do carrinho quando houver uma atualização
+  useEffect(() => {
+    if (cartCount > 0) {
+      setAnimateCart(true);
+      const timer = setTimeout(() => setAnimateCart(false), 500); // Tempo da animação (500ms)
+      return () => clearTimeout(timer); // Limpar o timer quando o componente for desmontado
+    }
+  }, [cartCount]);
+
+  // Função de rolagem suave para as seções
+  const handleSmoothScrollClick = (e, target) => {
+    e.preventDefault(); // Impede o comportamento padrão do link
+    handleSmoothScroll(target); // Chama a função para rolar até a seção
+  };
+
   return (
-    <Navbar bg="success" variant="dark" expand="lg" className="custom-navbar"> 
-      {/* Navbar component from React Bootstrap with a custom background color (em Português: Componente Navbar do React Bootstrap com uma cor de fundo personalizada) */}
-      <Container> {/* Container to wrap the navbar content (em Português: Container para envolver o conteúdo da navbar) */}
-       
+    <Navbar bg="success" variant="dark" expand="lg" className={`custom-navbar fixed-top ${isNavbarVisible ? "" : "d-none"}`}>
+      <Container>
         <div className="navbar-brand-container">
-          {/* A custom div that contains the logo icon and the brand name */}
-          <i className="bi bi-tree"></i> {/* Bootstrap Icons for a tree icon */}
-          <Navbar.Brand href="/">CWB HousePlants</Navbar.Brand> {/* The brand name of the website as a clickable link */}
+          <i className="bi bi-tree"></i>
+          <Navbar.Brand href="/">CWB HousePlants</Navbar.Brand>
         </div>
 
-        <Navbar.Toggle aria-controls="navbar-nav" /> {/* Navbar toggle button for mobile view */}
-        <Navbar.Collapse id="navbar-nav"> {/* Collapsible part of the navbar for responsive design */}
-         
-          <Nav className="mx-auto"> {/* Nav component with horizontal spacing */}
-            {/* Links for different plant categories with smooth scrolling */}
-            <Nav.Link href="#" onClick={() => handleSmoothScroll("indoor")}>
+        <Navbar.Toggle aria-controls="navbar-nav" />
+        <Navbar.Collapse id="navbar-nav">
+          <Nav className="mx-auto">
+            {/* Links de navegação com rolagem suave */}
+            <Nav.Link href="#indoor" onClick={(e) => handleSmoothScrollClick(e, "indoor")}>
               Indoor Plants
             </Nav.Link>
-            <Nav.Link href="#" onClick={() => handleSmoothScroll("outdoor")}>
+            <Nav.Link href="#outdoor" onClick={(e) => handleSmoothScrollClick(e, "outdoor")}>
               Outdoor Plants
             </Nav.Link>
-            <Nav.Link href="#" onClick={() => handleSmoothScroll("exotic")}>
+            <Nav.Link href="#exotic" onClick={(e) => handleSmoothScrollClick(e, "exotic")}>
               Exotic Plants
             </Nav.Link>
           </Nav>
 
-          {/* Custom cart icon with cart count */}
-          <div onClick={handleCartClick} className="cart-icon-container"> 
-            <i className="bi bi-cart"></i> {/* Cart icon */}
-            <span className="cart-count">({cartCount})</span> {/* Displaying the cart count */}
+          {/* Ícone do carrinho com animação */}
+          <div
+            onClick={handleCartClick}
+            className={`cart-icon ${animateCart ? "animate" : ""}`}
+            id="cart-icon"
+          >
+            <i className="bi bi-cart"></i>
+            <span className="cart-count">{cartCount}</span>
           </div>
         </Navbar.Collapse>
       </Container>
@@ -41,4 +58,4 @@ const NavigationBar = ({ cartCount, handleCartClick, handleSmoothScroll }) => { 
   );
 };
 
-export default NavigationBar; // Exporting the NavigationBar component (em Português: Exportando o componente NavigationBar)
+export default NavigationBar;

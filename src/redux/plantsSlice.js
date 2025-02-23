@@ -1,7 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit"; // Importing the createSlice function from Redux Toolkit (em Português: Importando a função createSlice do Redux Toolkit)
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  // Initial state for different plant categories (em Português: Estado inicial para diferentes categorias de plantas)
   Indoor: [
     { id: 1, name: "Fern", price: 39.99, image: "./src/assets/images/fern.jpg", quantity: 0, category: "Indoor" },
     { id: 2, name: "Snake Plant", price: 29.99, image: "./src/assets/images/snake-plant.jpg", quantity: 0, category: "Indoor" },
@@ -16,7 +15,10 @@ const initialState = {
     { id: 9, name: "Lavender", price: 39.99, image: "./src/assets/images/lavender.jpg", quantity: 0, category: "Outdoor" },
     { id: 10, name: "Rosemary", price: 25.99, image: "./src/assets/images/rosemary.jpg", quantity: 0, category: "Outdoor" },
     { id: 11, name: "Sunflower", price: 15.99, image: "./src/assets/images/sunflower.jpg", quantity: 0, category: "Outdoor" },
-    { id: 12, name: "Hibiscus", price: 49.99, image: "./src/assets/images/hibiscus.jpg", quantity: 0, category: "Outdoor" },
+    { id: 12, name: "Red Rose", price: 29.99, image: "./src/assets/images/red-rose.jpg", quantity: 0, category: "Outdoor" },
+    { id: 13, name: "Light Rose", price: 19.99, image: "./src/assets/images/light-rose.jpg", quantity: 0, category: "Outdoor" },
+    { id: 14, name: "Hydrangea", price: 65.99, image: "./src/assets/images/Hydrangea.jpg", quantity: 0, category: "Outdoor" },
+    { id: 14, name: "Purple Orchid", price: 65.99, image: "./src/assets/images/purple-orchid.jpg", quantity: 0, category: "Outdoor" },
   ],
   Exotic: [
     { id: 13, name: "Orchid", price: 129.99, image: "./src/assets/images/orchid.jpg", quantity: 0, category: "Exotic" },
@@ -29,26 +31,33 @@ const initialState = {
 };
 
 const plantsSlice = createSlice({
-  name: "plants", // The name of the slice (em Português: Nome da slice)
-  initialState, // The initial state for this slice (em Português: O estado inicial para essa slice)
+  name: "plants",
+  initialState,
   reducers: {
-    // Reducers to handle actions (em Português: Redutores para manipular ações)
-    addToCart: (state, action) => {
-      const { category, id } = action.payload; // Destructuring to get category and plant id from the action payload (em Português: Desestruturando para obter a categoria e o ID da planta do payload da ação)
-      const plant = state[category].find((p) => p.id === id); // Finding the plant in the specific category (em Português: Encontrando a planta na categoria específica)
+    addToCart(state, action) {
+      const { id, category } = action.payload;
+      const plant = state[category].find(plant => plant.id === id);
       if (plant) {
-        plant.quantity += 1; // Increment the quantity of the plant in the cart (em Português: Incrementando a quantidade da planta no carrinho)
+        plant.quantity += 1;
       }
     },
-    removeFromCart: (state, action) => {
-      const { category, id } = action.payload; // Destructuring to get category and plant id from the action payload (em Português: Desestruturando para obter a categoria e o ID da planta do payload da ação)
-      const plant = state[category].find((p) => p.id === id); // Finding the plant in the specific category (em Português: Encontrando a planta na categoria específica)
+    removeFromCart(state, action) {
+      const { id, category } = action.payload;
+      const plant = state[category].find(plant => plant.id === id);
       if (plant && plant.quantity > 0) {
-        plant.quantity -= 1; // Decrement the quantity of the plant in the cart (em Português: Decrementando a quantidade da planta no carrinho)
+        plant.quantity -= 1;
       }
     },
-  },
+    // Ajustada para apenas zerar a quantidade no carrinho
+    removeItemCompletely(state, action) {
+      const { id, category } = action.payload;
+      const plant = state[category].find(plant => plant.id === id);
+      if (plant) {
+        plant.quantity = 0; // Apenas zera a quantidade no carrinho, não remove da lista
+      }
+    }
+  }
 });
 
-export const { addToCart, removeFromCart } = plantsSlice.actions; // Exporting the actions from the slice (em Português: Exportando as ações da slice)
-export default plantsSlice.reducer; // Exporting the reducer (em Português: Exportando o redutor)
+export const { addToCart, removeFromCart, removeItemCompletely } = plantsSlice.actions;
+export default plantsSlice.reducer;

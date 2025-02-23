@@ -1,110 +1,175 @@
+/* Importação da fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+/* Navbar com efeito moderno */
 .custom-navbar {
-    background-color: rgba(40, 167, 69, 0.9) !important; 
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px); 
-    padding: 12px 20px;
-  }
-  
- 
-  .navbar-brand-container {
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 600;
-    color: #f8f9fa !important;
-    font-family: 'Playfair Display', serif; 
-    letter-spacing: 1.5px;
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.2);
-  }
-  
-  .navbar-brand-container i {
-    font-size: 2rem;
-    font-style: italic;
-    font-weight: 600;
-    color: #f8f9fa !important; 
-    font-family: 'Playfair Display', serif; 
-    letter-spacing: 1.5px;
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.2);
-  }
-  
+  background-color: #2b3e50 !important; /* Cor da navbar */
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1030; /* Garantir que a navbar fique acima de outros conteúdos */
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
+/* Estilo para o logo da Navbar */
+.navbar-brand-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.9rem;
+  font-style: italic;
+  color: #f8f9fa !important;
+  font-family: 'Dancing Script', cursive; /* Fonte cursiva moderna */
+  letter-spacing: 1.5px;
+  text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.2);
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
 
+/* Ícone do logo */
+.navbar-brand-container i {
+  font-size: 2rem;
+  margin-right: 8px;
+}
+
+/* Hover do logo */
 .navbar-brand-container:hover {
-    color: #b6e3c6 !important; 
-    text-shadow: 2px 2px 6px rgba(182, 227, 198, 0.5);
-    transform: scale(1.05);
+  color: #b6e3c6 !important;
+  text-shadow: 2px 2px 6px rgba(182, 227, 198, 0.5);
+  transform: scale(1.05);
 }
 
-  
-  .navbar-nav {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .navbar-nav .nav-link {
-    font-size: 1.2rem;
-    color: #ffffff !important; 
-    margin: 0 20px;
-    padding: 12px 18px;
-    font-family: 'Quicksand', sans-serif; 
-    font-weight: 500;
-    text-transform: capitalize; 
-    letter-spacing: 0.5px;
-    position: relative;
-    transition: color 0.3s ease, transform 0.3s ease, padding 0.3s ease; 
-  }
-  
-  .navbar-nav .nav-link:hover {
-    color: white !important; 
-    transform: translateY(-3px); 
-    padding: 12px 25px; 
+/* Estilo para o menu de navegação */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
+
+/* Links da Navbar */
+.navbar-nav .nav-link {
+  font-size: 1.6rem;
+  color: #ffffff !important;
+  margin: 0 20px;
+  padding: 12px 18px;
+  font-family: 'Dancing Script', cursive; /* Fonte cursiva moderna */
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  position: relative;
+  transition: color 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Efeito ao passar o mouse nos links */
+.navbar-nav .nav-link:hover {
+  color: white !important;
+  transform: translateY(-3px);
+  padding: 12px 25px;
+}
+
+/* Linha animada abaixo dos links */
+.navbar-nav .nav-link::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  bottom: 0;
+  left: 50%;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.navbar-nav .nav-link:hover::before {
+  width: 100%;
+}
+
+/* Ícone do carrinho */
+.cart-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 1.7rem;
+  padding: 10px 16px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-left: 20px;
+}
+
+.cart-icon:hover {
+  color: #b6e3c6 !important;
+  text-shadow: 2px 2px 6px rgba(182, 227, 198, 0.5);
+  transform: scale(1.05);
+}
+
+
+/* Contador de itens no carrinho */
+.cart-count {
+  font-size: 0.9rem; /* Um pouco menor para ficar mais elegante */
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 5px;
+  right: -5px;
   
-  .navbar-nav .nav-link::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: white; 
-    bottom: 0;
-    left: 50%;
-    transition: width 0.3s ease, left 0.3s ease;
-    transform: translateX(-50%);
+  border: 1px solid white; /* Borda branca sutil */
+  
+  border-radius: 50%;
+  min-width: 22px;
+  min-height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sombra leve para destacar */
+  transform: scale(1);
+  transition: transform 0.2s ease-in-out, background-color 0.3s ease;
+}
+
+/* Animação de aumento do contador no carrinho */
+.cart-icon.animate {
+  animation: bounce 0.5s ease-in-out;
+}
+
+/* Animação de bounce no carrinho */
+@keyframes bounce {
+  0% {
+    transform: scale(1);
   }
-  
-  .navbar-nav .nav-link:hover::before {
-    width: 100%;
+  50% {
+    transform: scale(1.2);
   }
-  
-  
-  
-  
-  .cart-icon-container {
-    display: flex;
-    align-items: center;
-    margin-left: 200px;
-    cursor: pointer;
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .navbar-brand-container {
     font-size: 1.5rem;
-    color: white;
-    background-color: #4CAF50;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
+
+  .cart-icon {
+    font-size: 1.5rem;
     padding: 8px 12px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
   }
-  
-  .cart-icon-container:hover {
-    background-color: #388E3C;
-  }
-  
-  .cart-count {
-    font-size: 1rem;
-    margin-left: 5px;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    top: -2px;
-  }
-  
+}
+
+/* Ajuste de padding-top no conteúdo para não sobrepor a navbar fixa */
+body {
+  padding-top: 70px; /* Ajuste para compensar a navbar fixa */
+}

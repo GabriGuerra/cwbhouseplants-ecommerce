@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
 body {
   font-family: 'Arial', sans-serif;
@@ -5,302 +6,149 @@ body {
   color: #2d2d2d;
 }
 
-
-
+#Indoor {
+  margin-top: 100px;
+}
 
 .main_container {
   margin-top: 40px;
 }
 
-
+/* Estilo para o título h2 com linhas em cima e embaixo */
 .plant-category h2 {
+  font-family: 'Dancing Script', cursive;
   text-align: center;
-  font-size: 2rem;
-  color: #2d5c3f;
+  font-size: 2.5rem;
   margin-bottom: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
 }
 
-
-.plants-list {
-  display: flex;
-  padding-inline: 100px;
-  flex-wrap: wrap;
-}
-
-
+/* Estilo para os Cards */
 .plant-card {
   padding: 20px;
-  margin: 0 auto;
-  background-color: transparent;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid #b0c4a6;
-  border-radius: 10px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Hover do Card */
 .plant-card:hover {
   transform: translateY(-10px);
-  background-color:  rgba(40, 167, 69, 0.9)
+  background-color: rgba(40, 167, 69, 0.9);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
+/* Imagem do card */
 .card-img-top {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
-  border-bottom: 1px solid #ddd;
-  border-radius: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 2px solid #ddd;
 }
 
+/* Corpo do card */
 .card-body {
   padding: 15px;
+  background-color: #ffffff;
 }
 
+/* Título do card */
 .card-title {
-  font-size: 1.3rem;
-  font-weight: bold;
+  font-size: 1.4rem;
+  font-weight: 800;
   color: #2d5c3f;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
 }
 
+/* Efeito ao passar o mouse no título */
+.card-title:hover {
+  color: #2d5c3f;
+}
+
+/* Texto do card */
 .card-text {
   font-size: 1.1rem;
   color: #3b3b3b;
+  line-height: 1.6;
 }
 
-
-.btn-add {
-  width: 38px;
-  height: 38px;
-  font-size: 18px;
-  background-color: #74c69d !important; /* Verde vibrante suave */
-  border: none !important;
-  color: white !important; /* Texto branco para contraste */
-  border-radius: 10px !important;
-  transition: background-color 0.3s ease, transform 0.2s ease !important;
+/* Efeito de hover nos cards */
+.animated-plant {
+  transition: transform 0.3s ease-in-out;
 }
 
-.btn-add:hover {
-  background-color: #52b788 !important; /* Verde um pouco mais escuro */
-  transform: scale(1.1) !important;
+.animated-plant:hover {
+  transform: scale(1.05);
 }
 
-
-.btn-remove {
-  width: 38px;
-  height: 38px;
-  font-size: 18px;
-  background-color: #f28482 !important; /* Vermelho coral suave */
-  border: none !important;
-  color: white !important; /* Texto branco */
-  border-radius: 10px !important;
-  transition: background-color 0.3s ease, transform 0.2s ease !important;
-}
-
-.btn-remove:hover {
-  background-color: #e76f6f !important; /* Tom um pouco mais forte ao passar o mouse */
-  transform: scale(1.1) !important;
-}
-
-
-
-
-
-.cart-details {
-  background-color: transparent;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.cart-details h3 {
-  color: #2d5c3f;
-  font-size: 2rem;
-  margin-bottom: 20px;
-}
-
-
-.total-cost {
-  display: flex;
-  justify-content: space-between;
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-.total-cost span {
-  color: #2c3e50;
-}
-
-
-
-
+/* Responsividade */
 @media (max-width: 768px) {
-  .navbar-nav {
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .plant-category h2 {
-    text-align: center;
-  }
-
-  .plants-list {
-    flex-direction: column;
-    align-items: center;
-  }
-
   .plant-card {
-    width: 100%;
+    margin: 15px auto;
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+
+  .card-title {
+    font-size: 1.2rem;
+  }
+
+  .card-text {
+    font-size: 1rem;
   }
 }
 
-
-
-.total-items {
-  color: #6c757d;
-  font-weight: 500;
-}
-
-.total-amount h2 {
-  color: #28a745;
-  font-weight: bold;
-}
-
-.item-row {
-  
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.item-details {
-  background-color: "#e3f2fd";
-  display: flex;
-  align-items: center;
-}
-
-.item-image {
+/* Botão de adicionar ao carrinho */
+button.btn-add,
+button.btn-remove {
   width: 50px;
   height: 50px;
-  border-radius: 8px;
-  margin-right: 15px;
-}
-
-.item-name {
-  font-weight: bold;
-  color: #343a40;
-}
-
-.item-category {
-  font-size: 0.9em;
-  color: #6c757d;
-}
-
-.item-price {
-  font-size: 0.95em;
-  color: #007bff;
-  font-weight: 500;
-}
-
-/* Estilizando botões */
-.item-actions {
+  font-size: 22px;
+  border: none;
+  color: white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
-  gap: 8px; /* Adiciona espaçamento entre os botões */
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.item-actions button {
-  border-radius: 5px;
-  padding: 6px 10px;
+button.btn-add {
+  background: linear-gradient(145deg, #74c69d, #57a87a);
 }
 
-.item-quantity {
-  font-size: 1em;
-  font-weight: bold;
-  color: #343a40;
+button.btn-add:hover {
+  background: linear-gradient(145deg, #57a87a, #3e805c);
+  transform: scale(1.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.remove-button {
-  background-color: #dc3545;
-  border: none;
-  padding: 5px 10px;
+button.btn-remove {
+  background: linear-gradient(145deg, #f28482, #d66c6a);
 }
 
-.remove-button:hover {
-  background-color: #c82333;
+button.btn-remove:hover {
+  background: linear-gradient(145deg, #d66c6a, #b95654);
+  transform: scale(1.08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Botões gerais */
-.button-group {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between; /* Distribui os botões nas extremidades */
-}
-
-.continue-shopping {
-  background-color: #17a2b8;
-  border: none;
-  padding: 10px 15px;
-  font-weight: bold;
-}
-
-.continue-shopping:hover {
-  background-color: #138496;
-}
-
-.checkout-button {
-  background-color: #28a745;
-  border: none;
-  padding: 10px 15px;
-  font-weight: bold;
-}
-
-.checkout-button:hover {
-  background-color: #218838;
-}
-
-
-@media (max-width: 768px) {
-  .item-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .item-actions {
-    margin-top: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .button-group {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .continue-shopping, .checkout-button {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
-}
-
-.fancy-title {
-  font-family: "Playfair Display", serif; 
-  font-size: 1.8rem;
-  letter-spacing: 1px;
-  position: relative;
-  color: #2c6e49; 
-}
-
-.title-line {
-  height: 3px;
-  width: 50px;
-  background: linear-gradient(to right, #2c6e49, transparent, #2c6e49); 
-  margin: 5px auto;
-  border-radius: 2px;
+button.btn-add:active,
+button.btn-remove:active {
+  transform: scale(0.95);
 }
