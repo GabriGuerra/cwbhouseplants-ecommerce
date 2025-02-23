@@ -1,9 +1,7 @@
-
-
 .first_page {
   display: flex;
   height: 100vh;
-  background-image: url("./assets/background.jpg");
+  background-image: url("../images/background.jpg");
   background-size: cover;
   background-position: center;
   justify-content: center;
@@ -21,6 +19,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  -webkit-backdrop-filter: blur(1px);
   backdrop-filter: blur(1px);
 }
 
@@ -30,22 +29,30 @@
 }
 
 .get-started-btn {
-  background-color: aquamarine;
-  color: black;
-  border: none;
-  padding: 20px 40px;
-  font-size: 19px;
-  border-radius: 5px;
+  background-color: #4CAF50; /* Verde suave, associado a plantas */
+  color: white;
+  border: 2px solid #388E3C; /* Cor mais forte de verde para borda */
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 500; /* Peso mais leve para um toque sutil */
+  border-radius: 8px;
   cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'Lora', serif; /* Fonte mais sutil e elegante */
+  transition: all 0.3s ease;
 }
 
 .get-started-btn:hover {
-  background-color: lightgreen;
+  background-color: #388E3C; /* Escurece ao passar o mouse */
+  border-color: #4CAF50;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Efeito de sombra suave */
 }
 
 .getstarted_btn {
   text-align: center;
-  font-size: 30px;
+  font-size: 28px;
+  font-family: 'Lora', serif; /* Fonte sutil para o título também */
 }
 
 .main_event {
@@ -54,8 +61,8 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
+  -webkit-backdrop-filter: blur(7px);
   backdrop-filter: blur(7px);
-  
   background-color: rgba(51, 61, 80, 0.7);
 }
 
@@ -79,6 +86,10 @@
   font-weight: 700;
   
 
+}
+.aboutus_container h4 {
+  text-align: center;
+ 
 }
 
 .first_page_name_btn {
@@ -110,6 +121,7 @@
   transition: top 0.5s ease;
   overflow-y: auto;
   z-index: 2;
+  -webkit-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
 }
 
