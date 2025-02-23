@@ -1,12 +1,12 @@
-# 🌿 Paradise Nursery - Plant E-commerce  
+# 🌿 CWB HousePlants - Plant E-commerce  
 
 ## 📌 About the Project | Sobre o Projeto  
 
 ### 🇺🇸 English  
-Paradise Nursery is a **React.js** e-commerce application for plant lovers. It allows users to browse different plant categories, add or remove items from the cart, and proceed to checkout with a personalized alert. The app is built using **Redux** for state management and **Bootstrap** for responsive styling.  
+CWB HousePlants is a **React.js** e-commerce application for plant lovers. It allows users to browse different plant categories, add or remove items from the cart, and proceed to checkout with a personalized alert. The app is built using **Redux** for state management and **Bootstrap** for responsive styling.  
 
 ### 🇧🇷 Português  
-**Paradise Nursery** é um e-commerce desenvolvido em **React.js** para amantes de plantas. Ele permite que os usuários naveguem por diferentes categorias, adicionem ou removam itens do carrinho e finalizem a compra com um alerta personalizado. O app utiliza **Redux** para gerenciamento de estado e **Bootstrap** para estilização responsiva.  
+**CWB HousePlants** é um e-commerce desenvolvido em **React.js** para amantes de plantas. Ele permite que os usuários naveguem por diferentes categorias, adicionem ou removam itens do carrinho e finalizem a compra com um alerta personalizado. O app utiliza **Redux** para gerenciamento de estado e **Bootstrap** para estilização responsiva.  
 
 ---
 
