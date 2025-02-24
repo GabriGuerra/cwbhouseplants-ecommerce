@@ -2,8 +2,7 @@ import React from "react";
 import { Card, Button, ListGroup, Image } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromCart, removeItemCompletely, addToCart } from "../redux/plantsSlice";
-import TotalCost from "./TotalCost"; // Importe o componente TotalCost
-
+import TotalCost from "./TotalCost"; 
 const Cart = ({ handleContinueShopping, handleCheckout }) => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.plants.cart);

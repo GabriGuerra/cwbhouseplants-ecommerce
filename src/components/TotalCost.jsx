@@ -5,7 +5,7 @@ import { addToCart, removeFromCart, removeItemCompletely } from "../redux/plants
 import '../assets/css/TotalCost.css';
 import Swal from 'sweetalert2'; // Importando SweetAlert2 para alertas bonitos
 
-const TotalCost = ({ items, totalAmount, handleContinueShopping }) => {
+const TotalCost = ({ items, totalAmount, handleContinueShopping, handleBackToStore }) => {
   const dispatch = useDispatch();
 
   // Filtra os itens que possuem quantidade maior que 0
@@ -85,7 +85,7 @@ const TotalCost = ({ items, totalAmount, handleContinueShopping }) => {
                     <h5 className="item-name">{item.name}</h5>
                     <p className="item-category">Category: {item.category}</p>
                     <p className="item-price">
-                      {item.quantity} x ${item.price.toFixed(2)}
+                      {item.quantity} x ${item.price.toFixed(2)} = ${(item.quantity * item.price).toFixed(2)}
                     </p>
                   </div>
                 </div>
@@ -131,6 +131,9 @@ const TotalCost = ({ items, totalAmount, handleContinueShopping }) => {
             Checkout
           </Button>
         </div>
+
+        {/* Link para voltar à loja */}
+        
       </Card.Body>
     </Card>
   );

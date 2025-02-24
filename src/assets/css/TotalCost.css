@@ -7,7 +7,7 @@
 }
 
 
-.total-items {
+.total-items, .empty-cart {
     color: #6c757d;
     font-weight: 500;
   }
@@ -134,4 +134,6 @@
       margin-bottom: 10px;
     }
   }
+  
+
   
