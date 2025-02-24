@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button, ListGroup, Image } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { addToCart, removeFromCart, removeItemCompletely } from "../redux/plantsSlice";
+import { addToCart, removeFromCart, removeItemCompletely } from "../redux/CartSlice";
 import '../assets/css/TotalCost.css';
 import Swal from 'sweetalert2'; // Importando SweetAlert2 para alertas bonitos
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Container, Button, Card } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart, removeFromCart } from "../redux/plantsSlice";
+import { addToCart, removeFromCart } from "../redux/CartSlice";
 import NavigationBar from "./Navbar";
 import TotalCost from "./TotalCost";
 import "../assets/css/ParadiseNursery.css";
