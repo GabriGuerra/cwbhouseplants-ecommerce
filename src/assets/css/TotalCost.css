@@ -1,139 +1,151 @@
+/* Atualiza o estilo do card total-cost */
 .total-cost-card {
-
-    padding: 80%;
+    padding: 30px; /* Ajusta o padding para uma quantidade razoável */
     margin-top: 100px;
-    
-    
+    max-width: 600px; /* Limita a largura máxima do card */
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff; /* Fundo branco para um visual limpo */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para o card */
 }
 
-
+/* Estilo para a parte de itens no carrinho e o texto */
 .total-items, .empty-cart {
-    color: #6c757d;
+    color: #6c757d; /* Cor mais suave para o texto */
     font-weight: 500;
-  }
-  
-  .total-amount h2 {
-    color: #28a745;
+}
+
+.total-amount h2 {
+    color: #28a745; /* Cor verde para o total */
     font-weight: bold;
-  }
-  
-  .item-row {
+    font-size: 1.5em; /* Aumenta um pouco o tamanho do texto */
+    margin-bottom: 20px;
+}
+
+/* Estilo da linha de itens no carrinho */
+.item-row {
     border-radius: 8px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-  }
-  
-  .item-details {
-    background-color: "#e3f2fd";
+    background-color: #f8f9fa; /* Fundo suave para cada item */
+}
+
+/* Estilo dos detalhes do item */
+.item-details {
     display: flex;
     align-items: center;
-  }
-  
-  .item-image {
+}
+
+.item-image {
     width: 50px;
     height: 50px;
     border-radius: 8px;
     margin-right: 15px;
-  }
-  
-  .item-name {
+}
+
+.item-name {
     font-weight: bold;
-    color: #343a40;
-  }
-  
-  .item-category {
+    color: #343a40; /* Cor escura para o nome do item */
+}
+
+.item-category {
     font-size: 0.9em;
-    color: #6c757d;
-  }
-  
-  .item-price {
+    color: #6c757d; /* Cor mais clara para a categoria */
+}
+
+.item-price {
     font-size: 0.95em;
-    color: #007bff;
+    color: #007bff; /* Cor azul para o preço */
     font-weight: 500;
-  }
-  
-  .item-actions {
+}
+
+/* Ações para ajustar a quantidade e remover itens */
+.item-actions {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-  
-  .item-actions button {
+}
+
+.item-actions button {
     border-radius: 5px;
     padding: 6px 10px;
-  }
-  
-  .item-quantity {
+}
+
+.item-quantity {
     font-size: 1em;
     font-weight: bold;
     color: #343a40;
-  }
-  
-  .remove-button {
-    background-color: #dc3545;
+}
+
+.remove-button {
+    background-color: #dc3545; /* Botão vermelho para remover */
     border: none;
     padding: 5px 10px;
-  }
-  
-  .remove-button:hover {
-    background-color: #c82333;
-  }
-  
-  .button-group {
+}
+
+.remove-button:hover {
+    background-color: #c82333; /* Efeito de hover mais escuro */
+}
+
+/* Botões para continuar comprando ou finalizar a compra */
+.button-group {
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .continue-shopping {
-    background-color: #17a2b8;
-    border: none;
-    padding: 10px 15px;
-    font-weight: bold;
-  }
-  
-  .continue-shopping:hover {
-    background-color: #138496;
-  }
-  
-  .checkout-button {
-    background-color: #28a745;
-    border: none;
-    padding: 10px 15px;
-    font-weight: bold;
-  }
-  
-  .checkout-button:hover {
-    background-color: #218838;
-  }
-  
-  @media (max-width: 768px) {
-    .item-row {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .item-actions {
-      margin-top: 10px;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-    }
-  
-    .button-group {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .continue-shopping, .checkout-button {
-      width: 100%;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-  }
-  
+}
 
-  
+.continue-shopping {
+    background-color: #17a2b8; /* Cor azul claro */
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.continue-shopping:hover {
+    background-color: #138496; /* Hover mais escuro */
+}
+
+.checkout-button {
+    background-color: #28a745; /* Cor verde */
+    border: none;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.checkout-button:hover {
+    background-color: #218838; /* Hover mais escuro */
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    .total-cost-card {
+        max-width: 90%; /* O card ocupa 90% da largura da tela em dispositivos pequenos */
+        padding: 20px; /* Reduz o padding em telas menores */
+    }
+
+    .item-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .item-actions {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .continue-shopping, .checkout-button {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+}
