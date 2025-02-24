@@ -15,10 +15,8 @@ const initialState = {
     { id: 9, name: "Lavender", price: 39.99, image: "./src/assets/images/lavender.jpg", quantity: 0, category: "Outdoor" },
     { id: 10, name: "Rosemary", price: 25.99, image: "./src/assets/images/rosemary.jpg", quantity: 0, category: "Outdoor" },
     { id: 11, name: "Sunflower", price: 15.99, image: "./src/assets/images/sunflower.jpg", quantity: 0, category: "Outdoor" },
-    { id: 12, name: "Red Rose", price: 29.99, image: "./src/assets/images/red-rose.jpg", quantity: 0, category: "Outdoor" },
-    { id: 13, name: "Light Rose", price: 19.99, image: "./src/assets/images/light-rose.jpg", quantity: 0, category: "Outdoor" },
-    { id: 14, name: "Hydrangea", price: 65.99, image: "./src/assets/images/Hydrangea.jpg", quantity: 0, category: "Outdoor" },
-    { id: 14, name: "Purple Orchid", price: 65.99, image: "./src/assets/images/purple-orchid.jpg", quantity: 0, category: "Outdoor" },
+    { id: 12, name: "Hibiscus", price: 49.99, image: "./src/assets/images/hibiscus.jpg", quantity: 0, category: "Outdoor" },
+    
   ],
   Exotic: [
     { id: 13, name: "Orchid", price: 129.99, image: "./src/assets/images/orchid.jpg", quantity: 0, category: "Exotic" },
