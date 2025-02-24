@@ -5,15 +5,11 @@ import './assets/css/App.css';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';
 
-// Criar a raiz do React e renderizar a aplicação
+// Usando JSX diretamente em vez de React.createElement
 ReactDOM.createRoot(document.getElementById('root')).render(
-  React.createElement(
-    React.StrictMode,
-    null, // Não há props para o StrictMode
-    React.createElement(
-      Provider,
-      { store: store },
-      React.createElement(App)
-    )
-  )
+  <React.StrictMode>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>
 );
