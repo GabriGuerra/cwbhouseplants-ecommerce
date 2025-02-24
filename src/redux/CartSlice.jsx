@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
 const initialState = {
   Indoor: [
     { id: 1, name: "Fern", price: 39.99, image: "/images/fern.jpg", quantity: 0, category: "Indoor" },
@@ -17,7 +16,6 @@ const initialState = {
     { id: 10, name: "Rosemary", price: 25.99, image: "/images/rosemary.jpg", quantity: 0, category: "Outdoor" },
     { id: 11, name: "Sunflower", price: 15.99, image: "/images/sunflower.jpg", quantity: 0, category: "Outdoor" },
     { id: 12, name: "Hibiscus", price: 49.99, image: "/images/hibiscus.jpg", quantity: 0, category: "Outdoor" },
-    
   ],
   Exotic: [
     { id: 13, name: "Orchid", price: 129.99, image: "/images/orchid.jpg", quantity: 0, category: "Exotic" },
@@ -46,17 +44,23 @@ const plantsSlice = createSlice({
       if (plant && plant.quantity > 0) {
         plant.quantity -= 1;
       }
+    },   
+    updateQuantity(state, action) {
+      const { id, category, quantity } = action.payload;
+      const plant = state[category].find(plant => plant.id === id);
+      if (plant) {
+        plant.quantity = quantity; // Atualiza a quantidade diretamente
+      }
     },
-    // Ajustada para apenas zerar a quantidade no carrinho
     removeItemCompletely(state, action) {
       const { id, category } = action.payload;
       const plant = state[category].find(plant => plant.id === id);
       if (plant) {
         plant.quantity = 0; // Apenas zera a quantidade no carrinho, não remove da lista
       }
-    }
+    },
   }
 });
 
-export const { addToCart, removeFromCart, removeItemCompletely } = plantsSlice.actions;
+export const { addToCart, removeFromCart, removeItemCompletely, updateQuantity } = plantsSlice.actions;
 export default plantsSlice.reducer;
