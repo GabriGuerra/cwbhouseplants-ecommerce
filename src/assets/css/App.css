@@ -5,7 +5,7 @@ body {
 .first_page {
   display: flex;
   height: 100vh;
-  background-image: url("../images/background.jpg");
+  background-image: url("/images/background.jpg");
   background-size: cover;
   background-position: center;
   justify-content: center;
