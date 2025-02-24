@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: 'https://gabriguerra.github.io/cwb-houseplants/',  
+  base: 'https://gabriguerra.github.io/cwbhouseplants-ecommerce/',  
 })
