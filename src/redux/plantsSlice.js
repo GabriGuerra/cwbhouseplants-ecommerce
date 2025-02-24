@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 const initialState = {
   Indoor: [
     { id: 1, name: "Fern", price: 39.99, image: "./src/assets/images/fern.jpg", quantity: 0, category: "Indoor" },
